@@ -29,14 +29,14 @@ for (var i = 0; i < pacientes.length; i++) {
   } else {
     if (pesoEhValido && alturaEhValida == false) {
       imc.textContent = "Altura Inválida!";
-      paciente.style.backgroundColor = "lightcoral";
+      paciente.classList.add("paciente-invalido");
     } else {
       if (pesoEhValido == false && alturaEhValida) {
         imc.textContent = "Peso Inválido!";
-        paciente.style.backgroundColor = "lightcoral";
+        paciente.classList.add("paciente-invalido");
       } else {
         imc.textContent = "Peso e Altura Inválidos!";
-        paciente.style.backgroundColor = "lightcoral";
+        paciente.classList.add("paciente-invalido");
       }
     }
   }
