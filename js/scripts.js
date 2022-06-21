@@ -1,25 +1,43 @@
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Nova Nutrição";
 
-var paciente = document.querySelector("#primeiro-paciente");
-var pacientePeso = document.querySelector(".info-peso").textContent;
-var pacienteAltura = document.querySelector(".info-altura").textContent;
-var imcPaciente = pacientePeso / (pacienteAltura * pacienteAltura);
+var pacientes = document.querySelectorAll(".paciente");
 
-var pesoEhValido = true;
-var alturaEhValida = true;
+console.log(pacientes.length);
 
-if (pacientePeso < 0 || pacientePeso > 1000) {
-  console.log("Peso Inválido!");
-  pesoEhValido = false;
-}
+for (var i = 0; i < pacientes.length; i++) {
+  var paciente = pacientes[i];
 
-if (pacienteAltura < 0 || pacienteAltura > 3.0) {
-  console.log("Altura Inválida!");
-  alturaEhValida = false;
-}
+  var pacientePeso = paciente.querySelector(".info-peso").textContent;
+  var pacienteAltura = paciente.querySelector(".info-altura").textContent;
+  var imcPaciente = pacientePeso / (pacienteAltura * pacienteAltura);
+  var imc = paciente.querySelector(".info-imc");
 
-if (pesoEhValido && alturaEhValida) {
-  var imc = document.querySelector(".info-imc");
-  imc.textContent = imcPaciente;
+  var pesoEhValido = true;
+  var alturaEhValida = true;
+
+  if (pacientePeso < 0 || pacientePeso >= 1000) {
+    pesoEhValido = false;
+  }
+
+  if (pacienteAltura < 0 || pacienteAltura >= 3.0) {
+    alturaEhValida = false;
+  }
+
+  if (pesoEhValido && alturaEhValida) {
+    imc.textContent = imcPaciente.toFixed(2);
+  } else {
+    if (pesoEhValido && alturaEhValida == false) {
+      imc.textContent = "Altura Inválida!";
+      paciente.style.backgroundColor = "lightcoral";
+    } else {
+      if (pesoEhValido == false && alturaEhValida) {
+        imc.textContent = "Peso Inválido!";
+        paciente.style.backgroundColor = "lightcoral";
+      } else {
+        imc.textContent = "Peso e Altura Inválidos!";
+        paciente.style.backgroundColor = "lightcoral";
+      }
+    }
+  }
 }
