@@ -1,23 +1,16 @@
 //Insere nova linha no HTML para um novo paciente
 
-function criarNovoPacienteTabela(paciente) {
+function criarNovoTr(paciente) {
   //Criamos uma tr para novo paciente a ser inserido na tabela
   var pacienteTr = document.createElement("tr");
   pacienteTr.classList.add("paciente");
 
   //Criamos as tds que irão no tr que criamos
-  var nomeTd = document.createElement("td");
-  var pesoTd = document.createElement("td");
-  var alturaTd = document.createElement("td");
-  var gorduraTd = document.createElement("td");
-  var imcTd = document.createElement("td");
-
-  //Inserimos os valores já obtidos e acrescentamos nas tds criadas
-  nomeTd.textContent = paciente.nome;
-  pesoTd.textContent = paciente.peso;
-  alturaTd.textContent = paciente.altura;
-  gorduraTd.textContent = paciente.gordura;
-  imcTd.textContent = paciente.imc;
+  var nomeTd = criarNovoTd(paciente.nome, "info-nome");
+  var pesoTd = criarNovoTd(paciente.peso, "info-peso");
+  var alturaTd = criarNovoTd(paciente.altura, "info-altura");
+  var gorduraTd = criarNovoTd(paciente.gordura, "info-gordura");
+  var imcTd = criarNovoTd(paciente.imc, "info-imc");
 
   //Inserimos as tds criadas dentro da tr criada
   pacienteTr.appendChild(nomeTd);
@@ -27,4 +20,12 @@ function criarNovoPacienteTabela(paciente) {
   pacienteTr.appendChild(imcTd);
 
   return pacienteTr;
+}
+
+function criarNovoTd(dado, classe) {
+  var td = document.createElement("td");
+  td.textContent = dado;
+  td.classList.add(classe);
+
+  return td;
 }

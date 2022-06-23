@@ -9,15 +9,18 @@ botaoAdicionar.addEventListener("click", function (event) {
   // Abstrai o formulário preenchido
   var form = document.querySelector("#form-adiciona");
 
-  //  Cria um objeto paciente com os dados obtidos
-  var paciente = obtemPacienteFormulario(form);
+  //  Cria um objeto paciente com os dados obtidos do form preenchido
+  var paciente = obterPacienteFormulario(form);
 
   // Cria nova linha no HTML para o novo paciente
-  var pacienteTr = criarNovoPacienteTabela(paciente);
+  var pacienteTr = criarNovoTr(paciente);
 
   //Pegamos a tabela de pacientes da DOM
   var tabela = document.querySelector("#tabela-pacientes");
 
   //Inserimos dentro da tabela a nova tr com seus tds do novo paciente
   tabela.appendChild(pacienteTr);
+
+  //Após inserido o novo paciente os campos são resetados
+  form.reset();
 });
