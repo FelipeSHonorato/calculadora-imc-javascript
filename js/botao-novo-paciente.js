@@ -12,6 +12,12 @@ botaoAdicionar.addEventListener("click", function (event) {
   //  Cria um objeto paciente com os dados obtidos do form preenchido
   var paciente = obterPacienteFormulario(form);
 
+  // Aplicamos as validações de peso e altura no novo paciente
+  if (!validaNovoPaciente(paciente)) {
+    console.log("Paciente inválido");
+    return;
+  }
+
   // Cria nova linha no HTML para o novo paciente
   var pacienteTr = criarNovoTr(paciente);
 

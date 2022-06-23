@@ -12,18 +12,8 @@ for (var i = 0; i < pacientes.length; i++) {
   var imc = paciente.querySelector(".info-imc");
 
   //Criarmos variáveis booleanas para validação
-  var pesoEhValido = true;
-  var alturaEhValida = true;
-
-  //Criamos a regra para validação do peso
-  if (peso < 0 || peso >= 1000) {
-    pesoEhValido = false;
-  }
-
-  // Criamos a regra de validação da altura
-  if (altura < 0 || altura >= 3.0) {
-    alturaEhValida = false;
-  }
+  var pesoEhValido = validaPeso(peso);
+  var alturaEhValida = validaAltura(altura);
 
   //Criamos a validações e alertas caso esteja fora da regra de negócio do cálculo
   if (pesoEhValido && alturaEhValida) {
@@ -41,5 +31,29 @@ for (var i = 0; i < pacientes.length; i++) {
         paciente.classList.add("paciente-invalido");
       }
     }
+  }
+}
+
+function validaPeso(peso) {
+  if (peso > 0 && peso <= 300) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function validaAltura(altura) {
+  if (altura > 0 && altura <= 3.0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function validaNovoPaciente(paciente) {
+  if (validaPeso(paciente.peso) && validaAltura(paciente.altura)) {
+    return true;
+  } else {
+    return false;
   }
 }
