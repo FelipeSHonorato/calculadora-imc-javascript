@@ -1,31 +1,33 @@
-var titulo = document.querySelector(".titulo");
-titulo.textContent = "Nova Nutrição";
+// Script para validar campos de Altura e Peso da tabela.
 
 var pacientes = document.querySelectorAll(".paciente");
 
-console.log(pacientes.length);
-
+//Criamos um for para percorrer a DOM na tabela pacientes
 for (var i = 0; i < pacientes.length; i++) {
   var paciente = pacientes[i];
 
-  var pacientePeso = paciente.querySelector(".info-peso").textContent;
-  var pacienteAltura = paciente.querySelector(".info-altura").textContent;
-  var imcPaciente = pacientePeso / (pacienteAltura * pacienteAltura);
+  // Abstraimos os tds da tabela
+  var peso = paciente.querySelector(".info-peso").textContent;
+  var altura = paciente.querySelector(".info-altura").textContent;
   var imc = paciente.querySelector(".info-imc");
 
+  //Criarmos variáveis booleanas para validação
   var pesoEhValido = true;
   var alturaEhValida = true;
 
-  if (pacientePeso < 0 || pacientePeso >= 1000) {
+  //Criamos a regra para validação do peso
+  if (peso < 0 || peso >= 1000) {
     pesoEhValido = false;
   }
 
-  if (pacienteAltura < 0 || pacienteAltura >= 3.0) {
+  // Criamos a regra de validação da altura
+  if (altura < 0 || altura >= 3.0) {
     alturaEhValida = false;
   }
 
+  //Criamos a validações e alertas caso esteja fora da regra de negócio do cálculo
   if (pesoEhValido && alturaEhValida) {
-    imc.textContent = imcPaciente.toFixed(2);
+    imc.textContent = calculaImc(peso, altura);
   } else {
     if (pesoEhValido && alturaEhValida == false) {
       imc.textContent = "Altura Inválida!";
