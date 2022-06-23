@@ -1,4 +1,0 @@
-function validaPaciente(paciente) {
-  if (paciente.peso < 3.0 && paciente.altura >= 0) {
-  }
-}

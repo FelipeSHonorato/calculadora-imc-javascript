@@ -13,8 +13,10 @@ botaoAdicionar.addEventListener("click", function (event) {
   var paciente = obterPacienteFormulario(form);
 
   // Aplicamos as validações de peso e altura no novo paciente
-  if (!validaNovoPaciente(paciente)) {
-    console.log("Paciente inválido");
+  var erros = validaNovoPaciente(paciente);
+
+  if (erros.length > 0) {
+    exibeMensagensErros(erros);
     return;
   }
 
@@ -29,4 +31,19 @@ botaoAdicionar.addEventListener("click", function (event) {
 
   //Após inserido o novo paciente os campos são resetados
   form.reset();
+
+  //Limpa campos de erro caso tenha
+  var mensagensErro = document.querySelector("#mensagens-erro");
+  mensagensErro.innerHTML = "";
 });
+
+//Funçao para exibição de erros durante processo de envio do form
+function exibeMensagensErros(erros) {
+  var ul = document.querySelector("#mensagens-erro");
+  ul.innerHTML = "";
+  erros.forEach(function (erro) {
+    var li = document.createElement("li");
+    li.textContent = erro;
+    ul.appendChild(li);
+  });
+}
