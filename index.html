@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <title>Aparecida Nutrição</title>
+    <title>Calculadora de IMC</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -10,13 +10,13 @@
   <body>
     <header>
       <div class="container">
-        <h1 class="titulo">Aparecida Nutrição</h1>
+        <h1 class="titulo">Calculadora de IMC</h1>
       </div>
     </header>
     <main>
       <section class="container">
         <h2>Meus pacientes</h2>
-        <label for="filtrar-tabela">Filtre:</label>
+        <label for="filtrar-tabela">Filtrar por nome:</label>
         <input
           type="text"
           name="filtro"
@@ -31,6 +31,7 @@
               <th>Altura(m)</th>
               <th>Gordura Corporal(%)</th>
               <th>IMC</th>
+              <th>Remover Paciente</th>
             </tr>
           </thead>
           <tbody id="tabela-pacientes">
@@ -40,6 +41,14 @@
               <td class="info-altura">2.00</td>
               <td class="info-gordura">10</td>
               <td class="info-imc">0</td>
+              <td class="info-remove">
+                <button
+                  class="botao-remover"
+                  onclick="removerPaciente(event.target)"
+                >
+                  Remover
+                </button>
+              </td>
             </tr>
 
             <tr class="paciente">
@@ -48,6 +57,14 @@
               <td class="info-altura">1.72</td>
               <td class="info-gordura">40</td>
               <td class="info-imc">0</td>
+              <td class="info-remove">
+                <button
+                  class="botao-remover"
+                  onclick="removerPaciente(event.target)"
+                >
+                  Remover
+                </button>
+              </td>
             </tr>
 
             <tr class="paciente">
@@ -56,6 +73,14 @@
               <td class="info-altura">1.64</td>
               <td class="info-gordura">14</td>
               <td class="info-imc">0</td>
+              <td class="info-remove">
+                <button
+                  class="botao-remover"
+                  onclick="removerPaciente(event.target)"
+                >
+                  Remover
+                </button>
+              </td>
             </tr>
 
             <tr class="paciente">
@@ -64,6 +89,14 @@
               <td class="info-altura">1.73</td>
               <td class="info-gordura">24</td>
               <td class="info-imc">0</td>
+              <td class="info-remove">
+                <button
+                  class="botao-remover"
+                  onclick="removerPaciente(event.target)"
+                >
+                  Remover
+                </button>
+              </td>
             </tr>
             <tr class="paciente">
               <td class="info-nome">Tatiana</td>
@@ -71,10 +104,18 @@
               <td class="info-altura">5.00</td>
               <td class="info-gordura">19</td>
               <td class="info-imc">0</td>
+              <td class="info-remove">
+                <button
+                  class="botao-remover"
+                  onclick="removerPaciente(event.target)"
+                >
+                  Remover
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
-        <span id="erro-ajax" class="invisivel"
+        <span id="erro-ajax" class="invisivel erro-ajax"
           >Erro ao buscar os pacientes externos!</span
         >
         <button id="buscar-pacientes" class="botao bto-principal">
@@ -137,8 +178,8 @@
     <script src="./js/botao-novo-paciente.js"></script>
     <script src="./js/insere-linha-paciente.js"></script>
     <script src="./js/cria-objeto-paciente.js"></script>
-    <script src="./js/remover-paciente.js"></script>
-    <script src="./js/filtro-pacientes.js"></script>
-    <script src="./js/buscar-pacientes.js"></script>
+    <script src="./js/remove-paciente.js"></script>
+    <script src="./js/filtra-pacientes.js"></script>
+    <script src="./js/busca-pacientes.js"></script>
   </body>
 </html>

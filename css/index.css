@@ -111,7 +111,9 @@ button{
     display: block;
     clear: both;
     margin: 10px 0px;
-
+	box-shadow: 3px 3px 6px #888888;
+	border-radius: 1rem;
+	
 }
 
 button:active{
@@ -154,4 +156,27 @@ button[disabled=disabled], button:disabled {
 
 .invisivel{
 	display: none;
+}
+
+.erro-ajax{
+	color: red;
+}
+
+#titulo-form{
+	margin-top: 2rem;
+}
+
+.botao-remover{
+	padding: .2em .2em;
+	border: 0;
+	font-size: 0.8rem;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-top: -3px;
+	color: #fff;
+	background-color:red;
+	width: 50%;
+    display: block;
+    clear: both;
+	border-radius: 1rem;
 }
