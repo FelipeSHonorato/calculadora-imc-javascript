@@ -15,18 +15,32 @@ botaoAdicionar.addEventListener("click", function () {
 
   //Adicionando evento ao carregar informando o tipo de resposta
   xhr.addEventListener("load", function () {
-    //Informando o tipo de resposta que será recebida no caso String
-    var resposta = xhr.responseText;
-    console.log(typeof resposta);
+    //Inserindo uma mensagem caso ocorra alguma erro no consumo da API
+    var erroAjax = document.querySelector("#erro-ajax");
 
-    //Efetuando um parse, transformando String em Objeto
-    var pacientes = JSON.parse(resposta);
-    console.log(typeof pacientes);
+    if (xhr.status == 200) {
+      //Caso a conexão seja feita corretamente o erro não irá aparecer
+      erroAjax.classList.add("invisivel");
 
-    //Inserindo os dados recebidos e convertidos na tabela pacientes
-    pacientes.forEach(function (paciente) {
-      adicionaPacienteNaTabela(paciente);
-    });
+      //Informando o tipo de resposta que será recebida no caso String
+      var resposta = xhr.responseText;
+      console.log(typeof resposta);
+
+      //Efetuando um parse, transformando String em Objeto
+      var pacientes = JSON.parse(resposta);
+      console.log(typeof pacientes);
+
+      //Inserindo os dados recebidos e convertidos na tabela pacientes
+      pacientes.forEach(function (paciente) {
+        adicionaPacienteNaTabela(paciente);
+      });
+    } else {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+
+      //Caso a conexão não seja feita corretamente o erro será exibido
+      erroAjax.classList.remove("invisivel");
+    }
   });
 
   xhr.send();
