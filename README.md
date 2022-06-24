@@ -16,7 +16,7 @@ Tecnologias utilizadas no desenvolvimento deste projeto:
 
 A aplicação após ser clonada através do prompt ou de uma IDE, como Visual Studio Code, deve ser executado o seguinte comando no console:
 
-A sua execução é através da vizualização do arquivo, index.html contido dentro do projeto.
+A sua execução é através da vizualização do arquivo index.html contido dentro do projeto.
 
 ---
 
