@@ -20,14 +20,7 @@ botaoAdicionar.addEventListener("click", function (event) {
     return;
   }
 
-  // Cria nova linha no HTML para o novo paciente
-  var pacienteTr = criarNovoTr(paciente);
-
-  //Pegamos a tabela de pacientes da DOM
-  var tabela = document.querySelector("#tabela-pacientes");
-
-  //Inserimos dentro da tabela a nova tr com seus tds do novo paciente
-  tabela.appendChild(pacienteTr);
+  adicionaPacienteNaTabela(paciente);
 
   //Após inserido o novo paciente os campos são resetados
   form.reset();
@@ -36,6 +29,15 @@ botaoAdicionar.addEventListener("click", function (event) {
   var mensagensErro = document.querySelector("#mensagens-erro");
   mensagensErro.innerHTML = "";
 });
+
+function adicionaPacienteNaTabela(paciente) {
+  // Cria nova linha no HTML para o novo paciente
+  var pacienteTr = criarNovoTr(paciente);
+  //Pegamos a tabela de pacientes da DOM
+  var tabela = document.querySelector("#tabela-pacientes");
+  //Inserimos dentro da tabela a nova tr com seus tds do novo paciente
+  tabela.appendChild(pacienteTr);
+}
 
 //Funçao para exibição de erros durante processo de envio do form
 function exibeMensagensErros(erros) {
