@@ -34,6 +34,8 @@ Além disso, nesse projeto foram aplicados alguns tratamentos de erro, onde o us
 * Nome e % de Gordura - Sejam vazios.
 * API - Caso ocorra uma erro no consumo da API de pacientes externos.
 
+Essas informações de erros são aplicadas tanto no formulário de novo paciente, através de seus campos, assim como pacientes que forem importados através da API externa.
+
 A API consumida no projeto é hospedada no Heroku e seu consumo foi através do formato JSON (JavaScript Object Notation). 
 
 Clicando sobre o botão "Buscar Paciente" é efetuada a solicitação via "GET" via url e retornado em string, foi efetuado sua conversão via parse para JSON e inserida na tabela através da função de criar novo paciente.
